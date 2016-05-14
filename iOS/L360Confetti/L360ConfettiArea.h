@@ -15,7 +15,7 @@
 - (instancetype)initWithFrame:(CGRect)frame colors:(NSArray *)colors;
 
 // Convenience method
-- (void)blastFrom:(CGPoint)point numberOfConfetti:(NSInteger)numberConfetti;
+- (void)blastFrom:(CGPoint)point numberOfConfetti:(NSInteger)numberOfConfetti;
 
 /**
  *  Use this to shoot confetti out towards some general direction with some specific force
@@ -24,7 +24,7 @@
  *  @angle      The general angle (in radians) with which the confetti will blast out from.
  *  @force      The force in which the confetti will blast out at. Ranges of 100-1000 is normal.
  */
-- (void)blastFrom:(CGPoint)point towards:(CGFloat)angle withForce:(CGFloat)force numberOfConfetti:(NSInteger)numberConfetti;
+- (void)blastFrom:(CGPoint)point angle:(CGFloat)angle spread:(CGFloat)spread force:(CGFloat)force numberOfConfetti:(NSInteger)numberOfConfetti;
 
 /**
  *  This is the upper limit on how much the confetti sways 

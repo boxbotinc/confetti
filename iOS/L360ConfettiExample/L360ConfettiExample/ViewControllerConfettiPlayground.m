@@ -81,8 +81,6 @@
     // Test blasts
     self.confettiView.blastSpread = 0.3;
     [self.confettiView blastFrom:[self.view convertPoint:tapPoint toView:self.confettiView]
-                         towards:M_PI / 2.0
-                       withForce:500.0
                 numberOfConfetti:60];
 }
 

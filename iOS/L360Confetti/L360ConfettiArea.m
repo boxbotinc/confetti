@@ -80,17 +80,17 @@
 }
 
 #pragma mark - Blast off!
-- (void)blastFrom:(CGPoint)point numberOfConfetti:(NSInteger)numberConfetti {
-    [self blastFrom:point towards:M_PI / 2.0 withForce:500.0f numberOfConfetti:numberConfetti];
+- (void)blastFrom:(CGPoint)point numberOfConfetti:(NSInteger)numberOfConfetti {
+    [self blastFrom:point angle:M_PI / 2.0f spread:self.blastSpread force:500.0f numberOfConfetti:numberOfConfetti];
 }
 
-- (void)blastFrom:(CGPoint)point towards:(CGFloat)angle withForce:(CGFloat)force numberOfConfetti:(NSInteger)numberConfetti {
+- (void)blastFrom:(CGPoint)point angle:(CGFloat)angle spread:(CGFloat)spread force:(CGFloat)force numberOfConfetti:(NSInteger)numberOfConfetti {
     NSMutableArray *confettiObjects = [NSMutableArray array];
     
     __weak L360ConfettiArea *weakSelf = self;
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        for (NSInteger i = 0; i < numberConfetti; i++) {
-            CGFloat randomWidth = self.confettiWidth + [weakSelf randomFloatBetween:-(self.confettiWidth / 2.0) and:2.0];
+        for (NSInteger i = 0; i < numberOfConfetti; i++) {
+            CGFloat randomWidth = weakSelf.confettiWidth + [weakSelf randomFloatBetween:-(weakSelf.confettiWidth / 2.0) and:2.0];
             CGRect confettiFrame = CGRectMake(point.x,
                                               point.y,
                                               randomWidth,
@@ -109,10 +109,10 @@
                                                                                           gravity:weakSelf.gravityBehavior];
             
             CGFloat confettiForce = [weakSelf randomFloatBetween:force - (force * 0.3) and:force];
-            CGFloat vectorForceXmin = confettiForce * cos(angle - weakSelf.blastSpread);
-            CGFloat vectorForceXmax = confettiForce * cos(angle + weakSelf.blastSpread);
-            CGFloat vectorForceYmin = -confettiForce * sin(angle - weakSelf.blastSpread);
-            CGFloat vectorForceYmax = -confettiForce * sin(angle + weakSelf.blastSpread);
+            CGFloat vectorForceXmin = confettiForce * cos(angle - spread);
+            CGFloat vectorForceXmax = confettiForce * cos(angle + spread);
+            CGFloat vectorForceYmin = -confettiForce * sin(angle - spread);
+            CGFloat vectorForceYmax = -confettiForce * sin(angle + spread);
             
             confettiObject.linearVelocity = CGPointMake([weakSelf randomFloatBetween:vectorForceXmin and:vectorForceXmax],
                                                         [weakSelf randomFloatBetween:vectorForceYmin and:vectorForceYmax]);
