@@ -197,7 +197,6 @@
 				TargetAttributes = {
 					CDB4F6971A3A42AA004C4310 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 77H9WPR5B8;
 					};
 					CDB4F6B01A3A42AA004C4310 = {
 						CreatedOnToolsVersion = 6.1.1;

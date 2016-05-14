@@ -83,7 +83,6 @@
     [self.confettiView blastFrom:[self.view convertPoint:tapPoint toView:self.confettiView]
                          towards:M_PI / 2.0
                        withForce:500.0
-                   confettiWidth:10.0
                 numberOfConfetti:60];
 }
 
