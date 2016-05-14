@@ -27,6 +27,7 @@
         self.flutterSpeed = flutterSpeed;
         self.flutterType = flutterType;
         self.animationAdded = NO;
+        self.layer.cornerRadius = CGRectGetWidth(frame) / 2;
     }
     return self;
 }
